@@ -74,16 +74,18 @@
         <version>3.3.0</version>
         <configuration>
           <!-- get all project dependencies -->
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
+          <descriptors>
+            <descriptor>src/assembly/executable-jar.xml</descriptor>
+          </descriptors>
 
-          <!-- MainClass in mainfest make a executable jar -->
           <archive>
             <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
               <mainClass>be.example.aspectj.App</mainClass>
             </manifest>
           </archive>
+
         </configuration>
         <executions>
           <execution>
@@ -109,6 +111,7 @@
         </executions>
       </plugin>
 
+
       <!-- Aspectj configuration -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -122,13 +125,6 @@
           <verbose>true</verbose>
           <Xlint>ignore</Xlint>
           <encoding>UTF-8 </encoding>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>be.example.aspectj.App</mainClass>
-            </manifest>
-          </archive>
 
           <!-- Weaved dependencies -->
           <weaveDependencies>
