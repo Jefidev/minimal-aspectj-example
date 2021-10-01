@@ -13,10 +13,11 @@
       <excludes>
 
         <exclude>
-          org.apache.spark:spark-sql_2.12:*
-        </exclude>
-        <exclude>
           org.apache.spark:spark-core_2.12:*
+        </exclude>
+
+        <exclude>
+          org.apache.spark:spark-sql_2.12:*
         </exclude>
 
       </excludes>

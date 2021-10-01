@@ -1,11 +1,13 @@
 import java.sql.DriverManager;
+import org.apache.spark.sql.Dataset;
 
 public aspect DriverManagerAspect {
 
-    pointcut callDriver() : 
+    pointcut executeDriver() : 
      call(* DriverManager.getConnection(..));
+     //call(* Dataset.withAction(..));
 
-    before() : callDriver() {
+    before() : executeDriver() {
         System.out.println("---------------------- Opening pandoras box");
     }
 

@@ -23,7 +23,8 @@ Le processus de weaving propre aux aspects peut avoir lieu à trois moments diff
 - load-time : Delay the application of the aspect at runtime. Complex.
 
 
-
+# Pistes
+https://github.com/apache/spark/blob/master/sql/core/src/main/scala/org/apache/spark/sql/execution/datasources/jdbc/JDBCRDD.scala
 # Ressources
 
 https://www.eclipse.org/aspectj/doc/released/index.html#paths

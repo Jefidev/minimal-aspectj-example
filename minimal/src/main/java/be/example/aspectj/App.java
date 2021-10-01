@@ -24,22 +24,11 @@ public class App {
                 .config("spark.driver.bindAddress", "127.0.0.1").getOrCreate();
 
         DataFrameReader dfr = session.sqlContext().read().format("jdbc")
-                .option("url", "jdbc:mysql://localhost:3306/test").option("user", "root").option("password", "root");
+                .option("url", "jdbc:mysql://localhost:3306/aspect").option("user", "root").option("password", "root");
 
-        Dataset<Row> df = dfr.option("dbtable", "apsect").load();
+        Dataset<Row> df = dfr.option("dbtable", "User").load();
 
         System.out.println(df.count());
-        Connection conn = null;
-
-        try {
-            System.out.println("Before explicitly calling the connexion");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" + "user=root&password=root");
-        } catch (SQLException ex) {
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-        }
 
     }
 }
